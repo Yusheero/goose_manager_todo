@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');
+@import "variables";
+@import "mixins";
+@import "reset";
+
+* {
+  font-family: 'Anonymous Pro', monospace;
+  margin:      0;
+  padding:     0;
+  box-sizing:  border-box;
+}
+.main {
+  @include sizes(0px, 100%, 100vh);
+  @include flex-wrapper(flex, column, space-between, start);
+  background-color: $main-background;
+}
+.container {
+  height: 100%;
+  width: 100%;
+  @include flex-wrapper(flex, row, center, center);
+  gap: 15px;
+  padding: 0 20px;
+}
+.wrapper {
+  @include flex-wrapper(flex, row, space-between, center);
+  gap: 20px;
+}
+.title-1 {
+  @include titles(40, 700);
+}
+.title-2 {
+  @include titles(25, 600);
+}
+form {
+  @include flex-wrapper(flex, column, start, start);
+  @include sizes(15px, 30%, 100%);
+  gap:            10px;
+  border-radius:  10px;
+  background-color: $component-background;
+  border: $component-border;
+}
+input {
+  @include sizes(10px 15px, 100%, 50px);
+  background-color: $input-background;
+  font-size:     18px;
+  border:        $component-border;
+}
+button {
+  background-color: $button-background;
+  color: $button-text-color;
+  font-size:        15px;
+  font-weight: 600;
+  align-self:       self-end;
+  border: $button-border;
+  padding:       10px;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: $button-background__hover;
+  color: $button-text-color__hover;
+  transition: background-color 1s, color 1s;
+  cursor: pointer;
+}
+.tasks-section {
+  @include sizes(15px, 30%, 100%);
+  background-color: $component-background;
+  border-radius: 10px;
+  border: $component-border;
+}
+.task-list {
+  height: 700px;
+  overflow: scroll;
+}
+.task-list::-webkit-scrollbar {
+  width: 0;
+}
+.task {
+  @include flex-wrapper(flex, column, start, start);
+  background-color: $task-background;
+  font-size: 18px;
+  padding: 15px;
+  margin-bottom: 10px;
+  color: $task-text-color;
+  border-radius: 10px;
+  gap: 5px;
+}
+details {
+  background-color: $button-background;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+details:hover {
+  background-color: #ffffff;
+  color: #151515;
+  transition: background-color 1s, color 1s;
+  cursor: pointer;
+}
+details summary {
+  list-style: none;
+}
+details[open] .content {
+  @include sizes(10px, 300px, 300px);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  color: black;
+  border: 3px solid #151515;
+}
+.content {
+  @include flex-wrapper(flex, column, start, start);
+  gap: 15px;
+}
+
+
+
+//Разрешение от 320px до 740px
+@media (min-width: 320px) and (max-width: 740px) {
+  * {
+    font-family: 'Anonymous Pro', monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .main {
+    @include sizes(15px 0px, 100%, 100%);
+    @include flex-wrapper(flex, column, center, center);
+    background-color: $main-background;
+  }
+  .container {
+    height: 100%;
+    width: 100%;
+    @include flex-wrapper(flex, column, center, center);
+    gap: 15px;
+    padding: 0 20px;
+    margin-bottom: 15px;
+  }
+  .wrapper {
+    @include flex-wrapper(flex, column, space-between, center);
+    gap: 20px;
+  }
+  .title-1 {
+    @include titles(30, 600);
+  }
+  .title-2 {
+    @include titles(15, 500);
+  }
+  form {
+    @include flex-wrapper(flex, column, start, start);
+    @include sizes(15px, 100%, 300px);
+    gap: 10px;
+    border-radius: 10px;
+    background-color: #fc9313;
+    border: $component-border;
+  }
+  input {
+    @include sizes(10px 15px, 100%, 50px);
+    font-size: 18px;
+    border: $component-border;
+  }
+  button {
+    background-color: $button-background;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    align-self: self-end;
+    border: 3px solid rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .tasks-section {
+    @include sizes(15px, 100%, 100%);
+    background-color: $component-background;
+    border-radius: 10px;
+    border: $component-border;
+  }
+  .task-list {
+    max-height: 500px;
+    overflow: scroll;
+  }
+  .task {
+    @include flex-wrapper(flex, column, start, start);
+    background-color: black;
+    font-size: 18px;
+    padding: 15px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    border-radius: 10px;
+    gap: 5px;
+  }
+  .task-list::-webkit-scrollbar {
+    width: 0;
+  }
+  details {
+    background-color: $button-background;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  details:hover {
+    background-color: #ffffff;
+    color: #151515;
+    transition: background-color 2s, color 2s;
+    cursor: default;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .content {
+    @include sizes(10px, 300px, 300px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    color: black;
+    border: 3px solid #151515;
+  }
+  .content {
+    @include flex-wrapper(flex, column, start, start);
+    gap: 15px;
+  }
+}
+
+
+
+//Разрешение от 740px до 1280px
+@media (min-width: 740px) and (max-width: 1280px) {
+  * {
+    font-family: 'Anonymous Pro', monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .main {
+    @include sizes(15px 0px, 100%, 100%);
+    @include flex-wrapper(flex, column, center, center);
+    background-color: $main-background;
+  }
+  .container {
+    height: 100%;
+    width: 100%;
+    @include flex-wrapper(flex, column, center, center);
+    gap: 15px;
+    padding: 0 20px;
+    margin-bottom: 15px;
+  }
+  .wrapper {
+    @include flex-wrapper(flex, column, space-between, center);
+    gap: 20px;
+  }
+  .title-1 {
+    @include titles(30, 600);
+  }
+  .title-2 {
+    @include titles(15, 500);
+  }
+  form {
+    @include flex-wrapper(flex, column, start, start);
+    @include sizes(15px, 100%, 300px);
+    gap: 10px;
+    border-radius: 10px;
+    background-color: #fc9313;
+    border: $component-border;
+  }
+  input {
+    @include sizes(10px 15px, 100%, 50px);
+    font-size: 18px;
+    border: $component-border;
+  }
+  button {
+    background-color: $button-background;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    align-self: self-end;
+    border: 3px solid rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .tasks-section {
+    @include sizes(15px, 100%, 100%);
+    background-color: $component-background;
+    border-radius: 10px;
+    border: $component-border;
+  }
+  .task-list {
+    max-height: 500px;
+    overflow: scroll;
+  }
+  .task {
+    @include flex-wrapper(flex, column, start, start);
+    background-color: black;
+    font-size: 18px;
+    padding: 15px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    border-radius: 10px;
+    gap: 5px;
+  }
+  .task-list::-webkit-scrollbar {
+    width: 0;
+  }
+  details {
+    background-color: $button-background;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  details:hover {
+    background-color: #ffffff;
+    color: #151515;
+    transition: background-color 2s, color 2s;
+    cursor: default;
+  }
+  details summary {
+    list-style: none;
+  }
+  details[open] .content {
+    @include sizes(10px, 300px, 300px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    color: black;
+    border: 3px solid #151515;
+  }
+  .content {
+    @include flex-wrapper(flex, column, start, start);
+    gap: 15px;
+  }
+}

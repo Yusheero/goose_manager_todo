@@ -1,0 +1,16 @@
+// mixins
+@mixin flex-wrapper($display: flex, $flex-direction: row, $justify-content: space-between, $align-items: center) {
+  display: $display;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+@mixin titles($font-size: 20, $font-weight: 600) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+@mixin sizes($padding: 10px, $width: 10px, $height: 10px) {
+  padding: $padding;
+  width: $width;
+  height: $height;
+}
