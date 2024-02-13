@@ -4,7 +4,7 @@ export default createStore({
     state: {
         tasks: [{
             id: 0,
-            title: 'Подготоука',
+            title: 'Подготовка',
             description: 'Подготовиться к экзамену',
             author: 'Константин',
             status: 'created',
